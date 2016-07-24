@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="assApp">
   <head>
     <meta charset="utf-8">
     <title>Mongo Assignments</title>
+    <script src="vendors/angular/angular.min.js"></script>
+    <script src="scripts/client.js"></script>
   </head>
-  <body>
+  <body ng-controller="AssignmentController as ass">
+    <h1>{{ass.message}}</h1>
+
+    <table>
+    <thead>
+      <tr>
+        <th>Assignment Number</th>
+        <th>Student</th>
+        <th>Score</th>
+        <th>Date Completed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="assignment in ass.assignments">
+        <td>{{assignment.assignment_number}}</td>
+        <td>{{assignment.student_name}}</td>
+        <td>{{assignment.score}}</td>
+        <td>{{assignment.date_completed}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+
+    Assignment Number: <input type="number" ng-model="ass.assignmentNumber" />
+    Student Name: <input type="text" ng-model="ass.studentName" />
+    Score: <input type="number" ng-model="ass.score" />
+    <button ng-click="ass.doAction()">Add</button>
+    <br />
+
+    Find by ID: <input type="string" ng-model="ass.id" />
+    <button ng-click="ass.findBy()">Find</button>
+      <p>Assignment number: {{ass.singleAssignment.assignment_number}}
+      </p>
+      <p>Student: {{ass.singleAssignment.student_name}}
+      </p>
+      <p>Score: {{ass.singleAssignment.score}}
+      </p>
+      <p>Date Completed: {{ass.singleAssignment.date_completed}}
+      </p>
 
   </body>
 </html>
