@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.use('/', index);
-//app.use('/ass', assignmentRouter);
+app.use('/ass', assignmentRouter);
 
 MongoDB.on('error', function (err) {
     console.log('mongodb connection error:', err);
