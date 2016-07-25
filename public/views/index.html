@@ -3,13 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>Mongo Assignments</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="vendors/angular/angular.min.js"></script>
     <script src="scripts/client.js"></script>
   </head>
   <body ng-controller="AssignmentController as ass">
+    <div class="container">
     <h1>{{ass.message}}</h1>
 
-    <table>
+    <table class="table table-striped">
     <thead>
       <tr>
         <th>Assignment Number</th>
@@ -32,11 +34,11 @@
     Assignment Number: <input type="number" ng-model="ass.assignmentNumber" />
     Student Name: <input type="text" ng-model="ass.studentName" />
     Score: <input type="number" ng-model="ass.score" />
-    <button ng-click="ass.doAction()">Add</button>
+    <button type="button" class="btn btn-primary" ng-click="ass.doAction()">Add Assignment</button>
     <br />
 
     Find by ID: <input type="string" ng-model="ass.id" />
-    <button ng-click="ass.findBy()">Find</button>
+    <button type="button" class="btn btn-primary" ng-click="ass.findBy()">Find</button>
       <p>Assignment number: {{ass.singleAssignment.assignment_number}}
       </p>
       <p>Student: {{ass.singleAssignment.student_name}}
@@ -45,6 +47,6 @@
       </p>
       <p>Date Completed: {{ass.singleAssignment.date_completed}}
       </p>
-
+    </div>
   </body>
 </html>
